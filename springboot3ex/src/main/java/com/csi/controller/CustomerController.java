@@ -20,6 +20,11 @@ public class CustomerController {
     @Autowired
     private CustomerServiceImpl customerServiceImpl;
 
+    @GetMapping("/hey")
+    public ResponseEntity<String> sayHello(){
+        return ResponseEntity.ok("Welcome");
+    }
+
     @PostMapping("/signup")
     public ResponseEntity<Customer> signUp(@Valid @RequestBody Customer customer) {
         return new ResponseEntity<>(customerServiceImpl.signUp(customer), HttpStatus.CREATED);
